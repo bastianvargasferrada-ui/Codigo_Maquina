@@ -1,3 +1,4 @@
+
 #Maquina de bebidas
 
 import time
@@ -67,9 +68,10 @@ def Menú_Bebidas():
                 print("Pedido finalizado")
             case _:
                 print("Opcion invalida")
+            
 
 
-        print(f"Monto acumulado: ", Total)
+        print(f"Monto acumulado: $", Total)
 
     return lista_Bebidas, Total
         
@@ -82,7 +84,7 @@ def Menú_main():
     Total_Main = 0
     while opc != 0:
         print()
-        print("1)Realizar pedido\n2)Listado de productos\n3)Pagar\n4)Eliminar producto\n5)Cancelar pedido")
+        print("1)Realizar pedido\n2)Listado de productos\n3)Pagar\n4)Eliminar producto\n5)Cancelar pedido\n")
         print()
         print("Seleccione una opción: ")
         opc = int(input(":"))
@@ -90,7 +92,8 @@ def Menú_main():
             case 1:
                 Lista_Main, Total_Main = Menú_Bebidas()
             case 2:
-                print(Lista_Main)
+                for b in Lista_Main:
+                    print(f">", b, "| $", Inventario[b])
             case 3:
                 print("El total a pagar es: ", "$", Total_Main)
                 print("Procesando pago...")
@@ -125,6 +128,7 @@ def Menú_main():
                 time.sleep(1)
                 print("Pedido cancelado con exito, hasta pronto!!")
                 break
+
                     
                         
 
